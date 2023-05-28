@@ -6,8 +6,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('Users example')
+    .setDescription('The Users API description')
     .setVersion('1.0')
     .addTag('user')
     .addBearerAuth()
@@ -19,10 +19,20 @@ async function bootstrap() {
   SwaggerModule.createDocument(
     app,
     new DocumentBuilder()
-      .setTitle('Dogs example')
-      .setDescription('The dogs API description')
+      .setTitle('Cats')
+      .setDescription('The cats API description')
       .setVersion('1.0')
       .addTag('cats')
+      .addBearerAuth()
+      .build(),
+  );
+  SwaggerModule.createDocument(
+    app,
+    new DocumentBuilder()
+      .setTitle('products')
+      .setDescription('The products API description')
+      .setVersion('1.0')
+      .addTag('products')
       .addBearerAuth()
       .build(),
   );
